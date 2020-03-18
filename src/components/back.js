@@ -131,11 +131,10 @@ export default class Back extends Component {
           <div id="sec2">
             <div id="sec3">
             <input  name="List" className="form-control" value={this.state.List} onChange={this.handleChange} placeholder="Add task..." /> 
-            <button type="button" onClick={(e) =>{ this.postStory(e);Item(e);} }>Add</button>
+            <button type="button" onClick={(e) =>{ this.postStory(e)} }>Add</button>
          
               <div id="sec4">
                     <ul id="lii">
-                    <Back entries={this.state.List}/>
                     </ul>
               </div>
             </div>
