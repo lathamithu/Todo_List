@@ -126,7 +126,6 @@ export default class Back extends Component {
             List.target.parentElement.removeChild(List.target);
         };
     }
-  
 
   render() {
       const {
@@ -139,7 +138,7 @@ export default class Back extends Component {
       return (
         <>
             <input   name="List" className="form-control" value={List} onChange={this.handleChange} placeholder="Add task..." /> 
-            <button type="button" onClick={(e,List) =>{ this.newItem(List);this.postStory(e);} }>Add</button>
+            <button type="button" onClick={(e,List) =>{ this.postStory(e);this.newItem(this.state.List);} }>Add</button>
         </>
       );
   }
