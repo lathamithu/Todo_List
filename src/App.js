@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import Navbar from './components/navbar';
 import Back from './components/back';
  function App () {
@@ -6,8 +7,6 @@ import Back from './components/back';
         <div>
             <Navbar/>
             <Back/>
-         
-            
         </div>
     );
 }
