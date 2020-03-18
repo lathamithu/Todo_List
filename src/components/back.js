@@ -116,6 +116,17 @@ export default class Back extends Component {
       });
   }
 
+  newItem=(List) => {
+
+        var ul = document.getElementById("lst");
+        var li = document.createElement("lii");
+        li.appendChild(document.createTextNode(List));
+        ul.appendChild(li);
+        li.onclick = function(List){
+            List.target.parentElement.removeChild(List.target);
+        };
+    }
+  
 
   render() {
       const {
@@ -127,20 +138,8 @@ export default class Back extends Component {
       }
       return (
         <>
-        <div id="sec"> 
-          <div id="sec2">
-            <div id="sec3">
-            <input  name="List" className="form-control" value={this.state.List} onChange={this.handleChange} placeholder="Add task..." /> 
-            <button type="button" onClick={(e) =>{ this.postStory(e)} }>Add</button>
-         
-              <div id="sec4">
-                    <ul id="lii">
-                    </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-              
+            <input   name="List" className="form-control" value={List} onChange={this.handleChange} placeholder="Add task..." /> 
+            <button type="button" onClick={(e,List) =>{ this.newItem(List);this.postStory(e);} }>Add</button>
         </>
       );
   }
