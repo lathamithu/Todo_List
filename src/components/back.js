@@ -60,14 +60,24 @@ export default class Back extends Component {
     return null
   }
 
-  render() {
-      const { todo } = this.state;
-      return (
-        <>
-            <input   name="todo" className="form-control" value={todo} onChange={this.handleChange} placeholder="Add task..." /> 
-            <button type="button" onClick={(e) =>{ this.postTodo(e) } }>Add</button>
-        </>
-      );
-  }
-}
 
+  newItem=(List) => {
+
+        var ul = document.getElementById("lst");
+        var li = document.createElement("lii");
+        li.appendChild(document.createTextNode(List));
+        ul.appendChild(li);
+        li.onclick = function(List){
+            List.target.parentElement.removeChild(List.target);
+        };
+}
+render() {
+    const { todo } = this.state;
+    return (
+      <>
+          <input   name="todo" className="form-control" value={todo} onChange={this.handleChange} placeholder="Add task..." /> 
+          <button type="button" onClick={(e) =>{ this.postTodo(e);this.newItem(e);} }>Add</button>
+      </>
+    );
+}
+}
