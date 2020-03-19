@@ -61,11 +61,11 @@ export default class Back extends Component {
   }
 
 
-  newItem=(List) => {
+  newItem=() => {
 
         var ul = document.getElementById("lst");
         var li = document.createElement("lii");
-        li.appendChild(document.createTextNode(List));
+        li.appendChild(document.createTextNode(this.state.todo));
         ul.appendChild(li);
         li.onclick = function(List){
             List.target.parentElement.removeChild(List.target);
@@ -76,7 +76,7 @@ render() {
     return (
       <>
           <input   name="todo" className="form-control" value={todo} onChange={this.handleChange} placeholder="Add task..." /> 
-          <button type="button" onClick={(e) =>{ this.postTodo(e);this.newItem(e);} }>Add</button>
+          <button type="button" onClick={(e) =>{ this.newItem();this.postTodo(e);} }>Add</button>
       </>
     );
 }
