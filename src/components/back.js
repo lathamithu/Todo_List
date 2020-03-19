@@ -28,7 +28,7 @@ export default class Back extends Component {
 
 
   postTodo = async () => {
-
+    if(this.state.todo!== ""){
     if (!this.flag){
         return
     }
@@ -60,9 +60,9 @@ export default class Back extends Component {
     return null
   }
 
-
+  }
   newItem=() => {
-
+if(this.state.todo!== ""){
         var ul = document.getElementById("lst");
         var li = document.createElement("lii");
         li.appendChild(document.createTextNode(this.state.todo));
@@ -70,6 +70,7 @@ export default class Back extends Component {
         li.onclick = function(List){
             List.target.parentElement.removeChild(List.target);
         };
+       }
 }
 render() {
     const { todo } = this.state;
